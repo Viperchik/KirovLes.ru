@@ -117,6 +117,7 @@ class Cement(models.Model):
     title = models.CharField(max_length=50, help_text='Введите название цемента(Для удобного поиска)')
     stamp = models.ForeignKey(StampCement, on_delete=models.SET_NULL, null=True, help_text='Выберите марку цемента')
     gost = models.CharField(max_length=50, null=True, help_text='Введите ГОСТ металла')
+    img = models.ImageField(upload_to='img/', null=True)
 
     def __str__(self):
         return self.title
@@ -185,6 +186,7 @@ class Metal(models.Model):
     stamp = models.ForeignKey(StampMetal, on_delete=models.SET_NULL, null=True, help_text='Выберите марку металла')
     size = models.TextField(max_length=15, help_text='Введите размер металла')
     gost = models.CharField(max_length=50, null=True, help_text='Введите ГОСТ металла')
+    img = models.ImageField(upload_to='img/', null=True)
 
     def __str__(self):
         return self.title

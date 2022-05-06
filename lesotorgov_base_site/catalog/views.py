@@ -10,6 +10,16 @@ def lumber_list(request):
     return render(request, 'lumber_list.html', {'data': data})
 
 
+def cement_list(request):
+    data = Cement.objects.all()
+    return render(request, 'cement_list.html', {'data': data})
+
+
+def metal_list(request):
+    data = Metal.objects.all()
+    return render(request, 'metal_list.html', {'data': data})
+
+
 def index(request):
     """
     Функция отображения для домашней страницы сайта.
