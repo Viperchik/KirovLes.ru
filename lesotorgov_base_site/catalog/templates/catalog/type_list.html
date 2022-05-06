@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}<title>Список сортов пиломатериала</title>{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+
+    <h1>Список сортов пиломатериала</h1>
+
+    {% if type_list %}
+    <ul>
+
+      {% for type in type_list %}
+      <li class="righted_text">
+        <a href="{{ type.get_absolute_url }}">{{ type.title }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no types in the base.</p>
+    {% endif %} 
+{% endblock %}

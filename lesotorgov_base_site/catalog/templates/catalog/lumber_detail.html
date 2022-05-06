@@ -1,0 +1,29 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}<title>{{ lumber.title }}</title>{% endblock %}
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+
+  <h1 class="title">{{ lumber.title }}</h1>
+
+<ul class="tech_info">
+  <li><strong>Размер: </strong> {{ lumber.size }}</li>
+  <li><strong>Сорт: </strong> {{lumber.type}}</li>
+  <li><strong>Количество досок в одном кубе: </strong> {{ lumber.num_in_cube }} </li>
+  <li><strong>ГОСТ: </strong> {{ lumber.gost }}</li>
+</ul>
+
+  <div class="central_text">
+    <h2 class="title">Количество</h2>
+
+    {% for lumber in lumber.lumberinstance_set.all %}
+    <hr>
+    <p class="{% if lumber.status == 'д' %}text-success{% elif lumber.status == 'з' %}text-danger{% else %}text-warning{% endif %}">{{ lumber.get_status_display }}</p>
+    {% if lumber.status == 'о' %}<p class="black"><strong>Отсутствует на складе</strong></p>{% endif %}
+    {% if lumber.status == 'д' %}<p class="black"><strong></strong> {{lumber.count}} {{lumber.type}}</p>{% endif %}
+    {% endfor %}
+  </div>
+{% endblock %}

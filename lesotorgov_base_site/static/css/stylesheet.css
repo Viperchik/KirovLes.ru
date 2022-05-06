@@ -1,0 +1,82 @@
+.sidebar-nav {
+    font-size: medium;
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+    margin-left: 30px;
+    color: #9a5959;
+}
+
+.welcome {
+    color: #9a5959;
+    text-align: center;
+    font-size: 35px;
+    font-family: Calibri;
+}
+
+body {
+    background-image: url("https://images.wallpaperscraft.ru/image/single/les_tuman_derevia_153079_1920x1200.jpg");
+    background-repeat: no-repeat;
+    min-width: 100%;
+    min-height: 100%;
+    background-position: top;
+    background-size: cover;
+    background-color: rgba(147, 116, 116, 0.5);
+    background-blend-mode: multiply;
+    font-family: "Segoe UI Semibold";
+}
+
+.central_text {
+    color: #070003;
+    text-align: center;
+    font-size: 20px;
+}
+
+.righted_text {
+    color: darkblue;
+    text-align: left;
+    font-size: 20px;
+}
+
+.tech_info {
+    font-size: 18px;
+    color: #000000;
+    text-align: center;
+    margin-right: 85mm;
+    list-style: none;
+}
+
+.title {
+    font-size: 25px;
+    color: black;
+    text-align: center;
+    margin-right: 85mm;
+}
+
+.black {
+    color: black;
+}
+
+.under_image {
+    margin-right: 5cm;
+    text-align: center;
+}
+
+.wrap {
+    width: 400px;
+}
+
+.list{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 18px;
+    font-family: "Segoe UI Semibold";
+}
+.pagination{
+    color: lightblue;
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+}

@@ -1,0 +1,13 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}<title>{{ type.title }}</title>{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+
+  <h1 class="title">{{ type.title }}</h1>
+<div class="central_text">
+  <p class="title"><strong>Описание: </strong>{{type.summary}}</p>
+</div>
+{% endblock %}

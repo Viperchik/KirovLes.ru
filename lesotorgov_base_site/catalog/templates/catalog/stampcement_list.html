@@ -1,0 +1,25 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block title %}<title>Список марок цемента</title>{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+
+    <h1>Список марок цемента</h1>
+
+    {% if stampcement_list %}
+    <ul>
+
+      {% for stampcement in stampcement_list %}
+      <li class="righted_text">
+        <a href="{{ stampcement.get_absolute_url }}">{{ stampcement.title }}</a>
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no cement stamps in the base.</p>
+    {% endif %} 
+{% endblock %}
