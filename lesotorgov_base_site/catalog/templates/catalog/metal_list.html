@@ -10,12 +10,17 @@
     <h1>Список металла</h1>
 
     {% if metal_list %}
-    <ul>
+    <ul class="list">
 
       {% for metal in metal_list %}
-      <li class="righted_text">
-        <a href="{{ metal.get_absolute_url }}">{{ metal.title }}</a> ({{metal.stamp}})
-      </li>
+
+        <div class="wrap">
+            <li>
+                <a href="{{ metal.get_absolute_url }}">{{ metal.title }}</a> ({{metal.stamp}})
+                <img src="{{ metal.img.url }}" alt="lumber_photo" width="200" height="200">
+            </li>
+        </div>
+
       {% endfor %}
 
     </ul>
