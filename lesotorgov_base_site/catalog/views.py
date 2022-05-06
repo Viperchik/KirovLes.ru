@@ -10,6 +10,11 @@ def lumber_list(request):
     return render(request, 'lumber_list.html', {'data': data})
 
 
+def lumber_detail(request):
+    data = Lumber.objects.all()
+    return render(request, 'lumber_detail.html', {'data': data})
+
+
 def cement_list(request):
     data = Cement.objects.all()
     return render(request, 'cement_list.html', {'data': data})

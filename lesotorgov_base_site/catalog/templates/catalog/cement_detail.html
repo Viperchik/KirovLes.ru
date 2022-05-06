@@ -5,22 +5,25 @@
 
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+<div class="flex_centred">
 
   <h1 class="title">{{ cement.title }}</h1>
+
+  <img src="{{ cement.img.url }}" alt="cement_photo" width="200" height="200">
 
   <ul class="tech_info">
     <li><strong>Марка: </strong> {{ cement.stamp }}</li>
     <li><strong>ГОСТ: </strong> {{ cement.gost }}</li>
   </ul>
 
-  <div class="central_text">
     <h2 class="title">Количество</h2>
 
     {% for cement in cement.cementinstance_set.all %}
     <hr>
-    <p class="{% if cement.status == 'д' %}text-success{% elif cement.status == 'з' %}text-danger{% else %}text-warning{% endif %}">{{ cement.get_status_display }}</p>
-    {% if cement.status == 'о' %}<p class="black"><strong>Отсутствует на складе</strong></p>{% endif %}
-    {% if cement.status == 'д' %}<p class="black"><strong></strong> {{cement.count}}</p>{% endif %}
+    <div class="black">
+    {% if cement.status == 'о' %}<p><strong>Отсутствует на складе</strong></p>{% endif %}
+    {% if cement.status == 'д' %}<p><strong></strong>Доступно: {{cement.count}} штук {cement.stamp}}</p>{% endif %}
+    </div>
     {% endfor %}
-  </div>
+</div>
 {% endblock %}

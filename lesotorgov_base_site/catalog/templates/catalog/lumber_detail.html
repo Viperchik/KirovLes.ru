@@ -3,27 +3,30 @@
 
 {% block title %}<title>{{ lumber.title }}</title>{% endblock %}
 
-
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/stylesheet.css'%}" type="text/css">
+<div class="flex_centred">
 
   <h1 class="title">{{ lumber.title }}</h1>
 
-<ul class="tech_info">
-  <li><strong>Размер: </strong> {{ lumber.size }}</li>
-  <li><strong>Сорт: </strong> {{lumber.type}}</li>
-  <li><strong>Количество досок в одном кубе: </strong> {{ lumber.num_in_cube }} </li>
-  <li><strong>ГОСТ: </strong> {{ lumber.gost }}</li>
-</ul>
+  <img src="{{ lumber.img.url }}" alt="lumber_photo" width="200" height="200">
 
-  <div class="central_text">
-    <h2 class="title">Количество</h2>
+  <ul class="tech_info">
+    <li><strong>Размер: </strong> {{ lumber.size }}</li>
+    <li><strong>Сорт: </strong> {{lumber.type}}</li>
+    <li><strong>Количество досок в одном кубе: </strong> {{ lumber.num_in_cube }} </li>
+    <li><strong>ГОСТ: </strong> {{ lumber.gost }}</li>
+  </ul>
+
+
+    <h2 class="title">Доступно на складе:</h2>
 
     {% for lumber in lumber.lumberinstance_set.all %}
     <hr>
-    <p class="{% if lumber.status == 'д' %}text-success{% elif lumber.status == 'з' %}text-danger{% else %}text-warning{% endif %}">{{ lumber.get_status_display }}</p>
-    {% if lumber.status == 'о' %}<p class="black"><strong>Отсутствует на складе</strong></p>{% endif %}
-    {% if lumber.status == 'д' %}<p class="black"><strong></strong> {{lumber.count}} {{lumber.type}}</p>{% endif %}
+    <div class="black">
+      {% if lumber.status == 'о' %}<p><strong>Отсутствует на складе</strong></p>{% endif %}
+      {% if lumber.status == 'д' %}<p><strong></strong> Доступно: {{lumber.count}} штук {{lumber.type}}</p>{% endif %}
+    </div>
     {% endfor %}
-  </div>
+</div>
 {% endblock %}

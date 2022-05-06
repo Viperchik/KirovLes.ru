@@ -41,20 +41,23 @@ body {
 .tech_info {
     font-size: 18px;
     color: #000000;
-    text-align: center;
-    margin-right: 85mm;
     list-style: none;
 }
 
 .title {
     font-size: 25px;
     color: black;
-    text-align: center;
-    margin-right: 85mm;
 }
-
+.title_2 {
+    font-size: 25px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    margin-right: 80mm;
+}
 .black {
     color: black;
+    font-size: 20px;
 }
 
 .under_image {
@@ -79,4 +82,9 @@ body {
     width: 100%;
     text-align: center;
     padding: 20px 0;
+}
+.flex_centred{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
